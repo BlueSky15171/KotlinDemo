@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        applicationId "com.itskylin.kotlindemo"
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Support libraries
+//    implementation deps.support.app_compat
+//    implementation deps.support.v4
+//    implementation deps.support.design
+//    implementation deps.support.cardview
+//    implementation deps.support.recyclerview
+//    implementation deps.support.constraint_layout
+//    implementation deps.support.multidex
+
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.test
+//    testImplementation deps.support.runner
+//    androidTestImplementation deps.support.runner
+//    androidTestImplementation deps.support.espresso
+
+    //room
+    implementation deps.androidx.room
+    kapt deps.androidx.room_compiler
+    annotationProcessor deps.androidx.room_compiler
+    testImplementation deps.androidx.room_testing
+    implementation project(':commonLib')
+}
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-v4:27.1.1'
+    }}
+//使用生成文件
+kapt {
+    generateStubs = true
+}

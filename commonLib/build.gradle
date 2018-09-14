@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode pros.commonCode
+        versionName pros.commonName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation deps.junit
+    api deps.logger
+    androidTestImplementation deps.support.runner
+    androidTestImplementation(deps.support.espresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    // Support libraries
+    api deps.support.app_compat
+    api deps.support.v4
+    api deps.support.design
+    api deps.support.cardview
+    api deps.support.recyclerview
+    api deps.support.constraint_layout
+    api deps.support.multidex
+
+    implementation deps.kotlin.stdlib
+    testImplementation deps.kotlin.test
+
+    // RxJava and retrofit
+    implementation deps.retrofit.rx_android
+    implementation deps.retrofit.rxjava
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.json
+    implementation deps.retrofit.adapter
+    api deps.retrofit.logger
+    api deps.persistent_cookie
+    api deps.json
+//    implementation deps.netty
+//    api deps.websocket
+
+    //view
+    api deps.percent_support_extends
+
+    //other
+    api deps.butterknife
+    api deps.glide
+    implementation deps.xml
+}
+repositories {
+    mavenCentral()
+}

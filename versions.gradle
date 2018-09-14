@@ -1,0 +1,279 @@
+/**
+ * Shared file between builds so that they can all use the same dependencies and
+ * maven repositories.
+ **/
+
+def pros =[:]
+pros.commonName = "1.0.0"
+pros.commonCode = 1
+pros.commonViewId = "com.itskylin.common.view"
+pros.commonBaseId = "com.itskylin.common.base"
+pros.commonDbId = "com.itskylin.common.db"
+ext.pros = pros
+
+ext.deps = [:]
+
+def versions = [:]
+
+versions.kotlin = "1.2.61"
+versions.android_gradle_plugin = "3.1.4"
+versions.androidx = "latest.release"
+versions.support = "28+"
+versions.multidex = "1.0.3"
+versions.dagger = "2.11"
+versions.glide = "3.8.0"
+versions.runner = "1.0.2"
+versions.espresso = "2.2.2"
+
+//versions.rxjava2 = "2.1.7"
+//versions.rx_android = "2.0.2"
+//versions.rx_adapter = "2.4.0"
+versions.retrofit = "latest.release"
+//versions.retrofit_logger = "3.10.0"
+//versions.rxjava2 = "2.1.7"
+//versions.rx_android = "2.0.2"
+//versions.rx_adapter = "2.4.0"
+//versions.retrofit = "2.3.0"
+//versions.retrofit_logger = "3.10.0"
+versions.converter_fastjson = "2.1.0"
+versions.event_bus = "3.1.1"
+versions.persistent_cookie = "v1.0.1"
+versions.gson = "2.8.5"
+versions.json = "1.2.47"
+versions.flow_layout = "1.0.3"
+versions.swipe_recycler = "1.1.3"
+versions.easy_recycler = "4.4.2"
+versions.permission = "1.1.2"
+versions.utils = "1.10.0"
+versions.top_snackbar = "1.1.1"
+versions.litepal = "1.6.1"
+versions.toasty = "1.1.3"
+versions.logger = "1.15"
+versions.material_dialog = "0.9.6.0"
+versions.wheelview = "1.3.3"
+versions.percent_support_extends = "1.1.1"
+versions.constraint_layout = "1.1.2"
+versions.gms = "8.4.0"
+versions.butterknife = "8.4.0"
+versions.junit = "4.12"
+versions.leakcanary_android = "1.5"
+versions.netty = "3.3.1.Final"
+versions.xml = "2.7.1"
+versions.websocket = "1.3.8"
+
+def build_versions = [:]
+build_versions.min_sdk = 16
+build_versions.target_sdk = 28
+build_versions.build_tools = "28.0.2"
+ext.build_versions = build_versions
+
+def deps = [:]
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin"
+kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.kotlin = kotlin
+
+def androidx = [:]
+androidx.annotation = "androidx.annotation:annotation:$versions.androidx"
+androidx.appcompat = "androidx.appcompat:appcompat:$versions.androidx"
+androidx.arch_core = "androidx.arch.core:core-common:$versions.androidx"
+androidx.arch_runtime = "androidx.arch.core:core-runtime:$versions.androidx"
+androidx.collection = "androidx.collection:collection:$versions.androidx"
+androidx.kotlin_core = "androidx.core:core-ktx:$versions.androidx"
+androidx.core = "androidx.core:core:$versions.androidx"
+androidx.cursoradapter = "androidx.cursoradapter:cursoradapter:$versions.androidx"
+androidx.customview = "androidx.customview:customview:$versions.androidx"
+androidx.bind_adapter = "androidx.databinding:databinding-adapters:$versions.androidx"
+androidx.bind_common = "androidx.databinding:databinding-common:$versions.androidx"
+androidx.bind_compiler_common = "androidx.databinding:databinding-compiler-common:$versions.androidx"
+androidx.bind_compiler = "androidx.databinding:databinding-compiler:$versions.androidx"
+androidx.bind_runtime = "androidx.databinding:databinding-runtime:$versions.androidx"
+androidx.bind_api = "androidx.documentfile:documentfile:$versions.androidx"
+
+androidx.interpolator = "androidx.interpolator:interpolator:$versions.androidx"
+androidx.leanback = "androidx.leanback:leanback:$versions.androidx"
+androidx.legacy_ui = "androidx.legacy:legacy-support-core-ui:$versions.androidx"
+androidx.legacy_utils = "androidx.legacy:legacy-support-core-utils:$versions.androidx"
+androidx.legacy_v13 = "androidx.legacy:legacy-support-v13:$versions.androidx"
+androidx.legacy_v4 = "androidx.legacy:legacy-support-v4:$versions.androidx"
+
+//lifecycle
+androidx.lifecycle_common = "androidx.lifecycle:lifecycle-common:$versions.androidx"
+androidx.lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:$versions.androidx"
+androidx.lifecycle_ext = "androidx.lifecycle:lifecycle-extensions:$versions.androidx"
+androidx.lifecycle_livedata_core = "androidx.lifecycle:lifecycle-livedata-core:$versions.androidx"
+androidx.lifecycle_livedata = "androidx.lifecycle:lifecycle-livedata:$versions.androidx"
+androidx.lifecycle_process = "androidx.lifecycle:lifecycle-process:$versions.androidx"
+androidx.lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime:$versions.androidx"
+androidx.lifecycle_service = "androidx.lifecycle:lifecycle-service:$versions.androidx"
+androidx.lifecycle_viewmodel_kotlin = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.androidx"
+androidx.lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel:$versions.androidx"
+
+//loader
+androidx.loader = "androidx.loader:loader:$versions.androidx"
+androidx.localbroadcastmanager = "androidx.localbroadcastmanager:localbroadcastmanager:$versions.androidx"
+
+//media
+androidx.media = "androidx.media:media:$versions.androidx"
+
+//multidex
+androidx.multidex_instrumentation = "androidx.multidex:multidex-instrumentation:$versions.androidx"
+androidx.multidex = "androidx.multidex:multidex:$versions.androidx"
+
+//paging
+androidx.paging = "androidx.paging:paging-common:$versions.androidx"
+androidx.paging_runtime = "androidx.paging:paging-runtime:$versions.androidx"
+
+//preference
+androidx.preference = "androidx.preference:preference:$versions.androidx"
+
+// print
+androidx.print = "androidx.print:print:$versions.androidx"
+
+// room database
+//androidx.room_common = "androidx.room:room-common:$versions.androidx"
+//androidx.room_compiler = "androidx.room:room-compiler:$versions.androidx"
+//androidx.room_migration = "androidx.room:room-migration:$versions.androidx"
+//androidx.room_runtime = "androidx.room:room-runtime:$versions.androidx"
+androidx.room_rxjava = "androidx.room:room-rxjava2:$versions.androidx"
+androidx.room_testing = "android.arch.persistence.room:testing:$versions.androidx"
+androidx.room = "android.arch.persistence.room:runtime:$versions.androidx"
+androidx.room_compiler = "android.arch.persistence.room:compiler:$versions.androidx"
+//sqlite
+androidx.sqlite_framework = "androidx.sqlite:sqlite-framework:$versions.androidx"
+androidx.sqlite = "androidx.sqlite:sqlite:$versions.androidx"
+
+//ui
+androidx.recyclerview = "androidx.recyclerview:recyclerview:$versions.androidx"
+androidx.slidingpane = "androidx.slidingpanelayout:slidingpanelayout:$versions.androidx"
+androidx.swiperefresh = "androidx.swiperefreshlayout:swiperefreshlayout:$versions.androidx"
+androidx.viewpager = "androidx.viewpager:viewpager:$versions.androidx"
+androidx.asynclayoutinflater = "androidx.asynclayoutinflater:asynclayoutinflater:$versions.androidx"
+androidx.browser = "androidx.browser:browser:$versions.androidx"
+androidx.cardview = "androidx.cardview:cardview:$versions.androidx"
+androidx.constraint_solver = "androidx.constraintlayout:constraintlayout-solver:$versions.androidx"
+androidx.constraint = "androidx.constraintlayout:constraintlayout:$versions.androidx"
+androidx.coordinator = "androidx.coordinatorlayout:coordinatorlayout:$versions.androidx"
+androidx.drawer = "androidx.drawerlayout:drawerlayout:$versions.androidx"
+androidx.fragment_kotlin = "androidx.fragment:fragment-ktx:$versions.androidx"
+androidx.fragment = "androidx.fragment:fragment:$versions.androidx"
+//percentlayout
+androidx.percent = "androidx.percentlayout:percentlayout:$versions.androidx"
+
+//test
+androidx.espresso = "androidx.test.espresso:espresso-core:$versions.androidx"
+androidx.espresso_idling_resource = "androidx.test.espresso:espresso-idling-resource:$versions.androidx"
+androidx.test_monitor = "androidx.test:monitor:$versions.androidx"
+androidx.test_rules = "androidx.test:rules:$versions.androidx"
+androidx.test_runner = "androidx.test:runner:$versions.androidx"
+
+//transition
+androidx.transition = "androidx.transition:transition:$versions.androidx"
+
+//auto & tv & wear
+androidx.tvprovider = "androidx.tvprovider:tvprovider:$versions.androidx"
+
+//vector
+androidx.vectordrawable = "androidx.vectordrawable:vectordrawable:$versions.androidx"
+androidx.vectordrawable_animated = "androidx.vectordrawable:vectordrawable-animated:$versions.androidx"
+androidx.versionedparcelable = "androidx.versionedparcelable:versionedparcelable:$versions.androidx"
+deps.androidx = androidx
+
+def support = [:]
+support.annotations = "com.android.support:support-annotations:$versions.support"
+support.app_compat = "com.android.support:appcompat-v7:$versions.support"
+support.v4 = "com.android.support:support-v4:$versions.support"
+support.v13 = "com.android.support:support-v13:$versions.support"
+support.percent = "com.android.support:percent:$versions.support"
+support.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
+support.cardview = "com.android.support:cardview-v7:$versions.support"
+support.design = "com.android.support:design:$versions.support"
+support.constraint_layout = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+support.core_utils = "com.android.support:support-core-utils:$versions.support"
+support.multidex = "com.android.support:multidex:$versions.multidex"
+support.runner = "com.android.support.test:runner:$versions.runner"
+support.espresso = "com.android.support.test.espresso:espresso-core:$versions.espresso"
+deps.support = support
+
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.adapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.json = "org.ligboy.retrofit2:converter-fastjson-android:$versions.converter_fastjson"
+retrofit.rxjava = "io.reactivex:rxjava:$versions.retrofit"
+retrofit.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.retrofit"
+retrofit.rx_android = "io.reactivex.rxjava2:rxandroid:$versions.retrofit"
+retrofit.logger = "com.squareup.okhttp3:logging-interceptor:$versions.retrofit"
+//retrofit.adapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.rx_adapter"
+//retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+//retrofit.json = "org.ligboy.retrofit2:converter-fastjson-android:$versions.converter_fastjson"
+//retrofit.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
+//retrofit.rx_android = "io.reactivex.rxjava2:rxandroid:$versions.rx_android"
+//retrofit.logger = "com.squareup.okhttp3:logging-interceptor:$versions.retrofit_logger"
+deps.retrofit = retrofit
+
+
+def dagger = [:]
+dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
+dagger.android = "com.google.dagger:dagger-android:$versions.dagger"
+dagger.android_support = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.android_support_compiler = "com.google.dagger:dagger-android-processor:$versions.dagger"
+deps.dagger = dagger
+
+//view
+deps.constraint_layout = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+deps.qmui = "com.qmuiteam:qmui:$versions.qmui"
+deps.flow_layout = "com.zhy:flowlayout-lib:$versions.flow_layout"
+deps.swipe_recycler = "com.yanzhenjie:recyclerview-swipe:$versions.swipe_recycler"
+deps.easy_recycler = "com.jude:easyrecyclerview:$versions.easy_recycler"
+deps.photo_view = "com.github.chrisbanes:PhotoView:$versions.photo_view"
+deps.material_dialog = "com.afollestad.material-dialogs:core:$versions.material_dialog"
+deps.wheelview = "com.wx.wheelview:wheelview:$versions.wheelview"
+
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+//other
+deps.glide = "com.github.bumptech.glide:glide:$versions.glide"
+deps.event_bus = "org.greenrobot:eventbus:$versions.event_bus"
+deps.persistent_cookie = "com.github.franmontiel:PersistentCookieJar:$versions.persistent_cookie"
+deps.gson = "com.google.code.gson:gson:$versions.gson"
+deps.json = "com.alibaba:fastjson:$versions.json"
+deps.permission = "com.yanzhenjie:permission:$versions.permission"
+deps.utils = "com.blankj:utilcode:$versions.utils"
+deps.top_snackbar = "com.androidadvance:topsnackbar:$versions.top_snackbar"
+deps.litepal = "org.litepal.android:core:$versions.litepal"
+deps.toasty = "com.github.GrenderG:Toasty:$versions.toasty"
+deps.logger = "com.orhanobut:logger:$versions.logger"
+deps.arouter_api = "com.alibaba:arouter-api:$versions.arouter_api"
+deps.arouter_compiler = "com.alibaba:arouter-compiler:$versions.arouter_compiler"
+deps.percent_support_extends = "com.zhy:percent-support-extends:$versions.percent_support_extends"
+deps.gms = "com.google.android.gms:play-services-appindexing:$versions.gms"
+deps.butterknife = "com.jakewharton:butterknife:$versions.butterknife"
+deps.butterknife_runtime = "com.jakewharton:butterknife-compiler:$versions.butterknife"
+deps.junit = "junit:junit:$versions.junit"
+deps.leakcanary_android_noop = "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary_android"
+deps.leakcanary_android = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary_android"
+deps.netty = "io.netty:netty-all:$versions.netty"
+deps.xml = "org.simpleframework:simple-xml:$versions.xml"
+deps.websocket = "org.java-websocket:Java-WebSocket:$versions.websocket"
+ext.deps = deps
+
+def addRepos(RepositoryHandler handler) {
+    handler.maven { url 'https://maven.aliyun.com/repository/google' }
+    handler.maven { url 'https://maven.aliyun.com/repository/jcenter' }
+//    handler.maven { url 'https://maven.aliyun.com/repository/central' }
+
+//    handler.maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    //Add the JitPack repository
+    handler.maven { url "https://jitpack.io" }
+}
+ext.addRepos = this.&addRepos
+
+
+def getDate() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+ext.getDate = this.&getDate
